@@ -14,6 +14,7 @@ const Home = () => {
     if (!clickEmitted)
       return;
 
+    refVideo.current!.volume = 0.5;
     refVideo.current!.play();
 
     setTimeout((): void => {
@@ -27,7 +28,7 @@ const Home = () => {
         <Logo width={256} />
         {
           switchScenes
-          ? <Presentation />
+          ? <Presentation videoRef={refVideo} />
           : <Click onEmit={setClickEmitted} />
         }
       </main>

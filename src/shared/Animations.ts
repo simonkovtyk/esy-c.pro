@@ -9,8 +9,8 @@ const cropOut = (node: HTMLElement) => gsap.to(node, {
 
 const cropIn = (node: HTMLElement) => gsap.to(node, {
   duration: 0.2,
-  translateY: 0,
-  height: 0
+  scaleY: 1,
+  height: "auto",
 });
 
 export {

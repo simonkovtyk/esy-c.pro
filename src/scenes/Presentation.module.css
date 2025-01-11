@@ -1,21 +1,27 @@
+.hiddenBox {
+  transform: scaleY(0);
+  height: 0;
+}
+
 .locationContainer {
   display: flex;
   align-items: center;
-  gap: 2px;
-  margin: 0 0 16px 0;
+  gap: 4px;
+  margin: 0 0 64px 0;
 }
 
 .locationName {
   color: #d4d4d4;
   margin: 0;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .boxContainer {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 0 0 64px 0;
 }
 
 .boxItemContainer {
@@ -47,7 +53,14 @@
 .boxDescription {
   font-weight: 400;
   font-size: 14px;
-  color: #6366f1;
   text-transform: uppercase;
   margin: 0;
+}
+
+.boxDescriptionSteam {
+  color: #6366f1;
+}
+
+.boxDescriptionYouTube {
+  color: #ff0033;
 }

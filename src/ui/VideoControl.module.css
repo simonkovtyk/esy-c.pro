@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.volumeContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  background-color: unset;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+
+.volumeSlider {
+  appearance: none;
+  border-radius: 16px;
+  background-color: #404040;
+  outline: none;
+  border: none;
+  height: 4px;
+}
+
+.volumeSlider::-webkit-slider-thumb, .volumeSlider::-moz-range-thumb {
+  cursor: pointer;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  border-color: #d4d4d4;
+}
