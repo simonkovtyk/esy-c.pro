@@ -1,0 +1,53 @@
+.locationContainer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0 0 16px 0;
+}
+
+.locationName {
+  color: #d4d4d4;
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.boxContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.boxItemContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 356px;
+}
+
+.boxMetadataContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.boxHeading {
+  font-weight: 600;
+  font-size: 24px;
+  color: #d4d4d4;
+  margin: 0 0 4px 0;
+}
+
+.boxDescriptionContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.boxDescription {
+  font-weight: 400;
+  font-size: 14px;
+  color: #6366f1;
+  text-transform: uppercase;
+  margin: 0;
+}
