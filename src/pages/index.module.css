@@ -7,3 +7,10 @@
   flex-direction: column;
   gap: 32px;
 }
+
+.copyright {
+  font-weight: 400;
+  font-size: 14px;
+  color: #d4d4d4;
+  margin: 0;
+}

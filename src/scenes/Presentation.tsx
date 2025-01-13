@@ -8,6 +8,9 @@ import Button from "../ui/Button";
 import VideoControl from "../ui/VideoControl";
 import styles from "./Presentation.module.css";
 import { cropIn } from "../shared/Animations";
+import Person from "../icons/Person";
+import { getAge } from "../utils/Age";
+import Work from "../icons/Work";
 
 interface Props {
   videoRef: MutableRefObject<HTMLVideoElement | null>
@@ -15,51 +18,66 @@ interface Props {
 
 const Presentation = (props: Props) => {
   const refBox: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
-  
+  const age: number = getAge();
+
   useEffect((): void => {
     cropIn(refBox.current!);
   }, []);
 
   return (
-    <Box ref={refBox} className={styles.hiddenBox}>
-      <div className={styles.locationContainer}>
-        <Location color="#d4d4d4" width={18} height={18} />
-        <p className={styles.locationName}>Germany</p>
-      </div>
-      <div className={styles.boxContainer}>
-        <BoxItem>
-          <div className={styles.boxItemContainer}>
-            <div className={styles.boxMetadataContainer}>
-              <img src="profile.webp" alt="Profile picture" width="64" height="64" />
-              <div>
-                <h1 className={styles.boxHeading}>esy ©</h1>
-                <div className={styles.boxDescriptionContainer}>
-                  <Steam width={16} height={16} color="#6366f1" />
-                  <p className={`${styles.boxDescription} ${styles.boxDescriptionSteam}`}>Steam Profile</p>
+    <div className={styles.container}>
+      <Box ref={refBox} className={styles.hiddenBox}>
+        <h1 className={styles.heading}>About me</h1>
+        <div className={styles.aboutMeContainer}>
+          <div className={styles.aboutMeInfoContainer}>
+            <Location color="#d4d4d4" width={18} height={18} />
+            <p className={styles.aboutMeText}>Germany</p>
+          </div>
+          <div className={styles.aboutMeInfoContainer}>
+            <Person color="#d4d4d4" width={18} height={18} />
+            <p className={styles.aboutMeText}>{age} y/o</p>
+          </div>
+          <div className={styles.aboutMeInfoContainer}>
+            <Work color="#d4d4d4" width={18} height={18} />
+            <p className={styles.aboutMeText}>Software Developer</p>
+          </div>
+        </div>
+        <h2 className={styles.heading}>Links</h2>
+        <div className={styles.boxContainer}>
+          <BoxItem>
+            <div className={styles.boxItemContainer}>
+              <div className={styles.boxMetadataContainer}>
+                <img className={styles.boxImage} src="images/profile.webp" alt="Profile picture" width="64" height="64" />
+                <div>
+                  <h1 className={styles.boxHeading}>esy ©</h1>
+                  <div className={styles.boxDescriptionContainer}>
+                    <Steam width={16} height={16} color="#6366f1" />
+                    <p className={`${styles.boxDescription} ${styles.boxDescriptionSteam}`}>Steam Profile</p>
+                  </div>
                 </div>
               </div>
+              <Button to="https://steamcommunity.com/id/esy_c/" newTab>Profile</Button>
             </div>
-            <Button to="https://steamcommunity.com/id/esy_c/" newTab>Profile</Button>
-          </div>
-        </BoxItem>
-        <BoxItem>
-          <div className={styles.boxItemContainer}>
-            <div className={styles.boxMetadataContainer}>
-              <img src="profile.webp" alt="Profile picture" width="64" height="64" />
-              <div>
-                <h1 className={styles.boxHeading}>esy ©</h1>
-                <div className={styles.boxDescriptionContainer}>
-                  <YouTube width={16} height={16} color="#ff0033" />
-                  <p className={`${styles.boxDescription} ${styles.boxDescriptionYouTube}`}>YouTube Profile</p>
+          </BoxItem>
+          <BoxItem>
+            <div className={styles.boxItemContainer}>
+              <div className={styles.boxMetadataContainer}>
+                <img className={styles.boxImage} src="images/profile.webp" alt="Profile picture" width="64" height="64" />
+                <div>
+                  <h1 className={styles.boxHeading}>esy ©</h1>
+                  <div className={styles.boxDescriptionContainer}>
+                    <YouTube width={16} height={16} color="#ff0033" />
+                    <p className={`${styles.boxDescription} ${styles.boxDescriptionYouTube}`}>YouTube Profile</p>
+                  </div>
                 </div>
               </div>
+              <Button to="https://www.youtube.com/@esy_c" newTab>Profile</Button>
             </div>
-            <Button to="https://www.youtube.com/@esy_c" newTab>Profile</Button>
-          </div>
-        </BoxItem>
-      </div>
-      <VideoControl videoRef={props.videoRef} />
-    </Box>
+          </BoxItem>
+        </div>
+        <VideoControl videoRef={props.videoRef} />
+      </Box>
+    </div>
   );
 };
 

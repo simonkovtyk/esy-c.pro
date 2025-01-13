@@ -1,4 +1,4 @@
-import { MutableRefObject, ReactNode, useRef } from "react";
+import { DragEventHandler, MutableRefObject, ReactNode, useRef } from "react";
 import styles from "./Button.module.css";
 
 interface Props {
@@ -10,8 +10,13 @@ interface Props {
 const Button = (props: Props) => {
   const refButton: MutableRefObject<HTMLAnchorElement | null> = useRef<HTMLAnchorElement | null>(null);
 
+  const handleDrag = (event: DragEvent): void => {
+    event.preventDefault();
+  };
+
   return (
-    <a ref={refButton} className={styles.button} href={props.to} target={props.newTab ? "_blank" : "_self"}>
+    // @ts-ignore
+    <a onDragStart={handleDrag} ref={refButton} className={styles.button} href={props.to} target={props.newTab ? "_blank" : "_self"}>
       {props.children}
     </a>
   );
