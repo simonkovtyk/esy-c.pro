@@ -68,6 +68,11 @@
   gap: 12px;
 }
 
+.boxSkeleton {
+  width: 64px;
+  height: 64px;
+}
+
 .boxImage {
   pointer-events: none;
 }

@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import Location from "../icons/Location";
 import Steam from "../icons/Steam";
 import YouTube from "../icons/YouTube";
@@ -11,6 +11,8 @@ import { cropIn } from "../shared/Animations";
 import Person from "../icons/Person";
 import { getAge } from "../utils/Age";
 import Work from "../icons/Work";
+import Skeleton from "../ui/Skeleton";
+import Picture from "../ui/Picture";
 
 interface Props {
   videoRef: MutableRefObject<HTMLVideoElement | null>
@@ -47,7 +49,7 @@ const Presentation = (props: Props) => {
           <BoxItem>
             <div className={styles.boxItemContainer}>
               <div className={styles.boxMetadataContainer}>
-                <img className={styles.boxImage} src="images/profile.webp" alt="Profile picture" width="64" height="64" />
+                <Picture width={64} height={64} src="/images/profile.webp" />
                 <div>
                   <h1 className={styles.boxHeading}>esy ©</h1>
                   <div className={styles.boxDescriptionContainer}>
@@ -62,7 +64,7 @@ const Presentation = (props: Props) => {
           <BoxItem>
             <div className={styles.boxItemContainer}>
               <div className={styles.boxMetadataContainer}>
-                <img className={styles.boxImage} src="images/profile.webp" alt="Profile picture" width="64" height="64" />
+                <Picture width={64} height={64} src="/images/profile.webp" />
                 <div>
                   <h1 className={styles.boxHeading}>esy ©</h1>
                   <div className={styles.boxDescriptionContainer}>

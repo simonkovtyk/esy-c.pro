@@ -4,8 +4,6 @@ const Document = () => {
   return (
     <Html lang="en">
       <Head>
-        <title>got played by esy ©</title>
-        <meta name="description" content="Maybe you got played by me??" />
         <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png" />
@@ -20,6 +18,10 @@ const Document = () => {
         <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="preload" href="/fonts/inter-v18-latin/regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/inter-v18-latin/medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/inter-v18-latin/semi-bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/inter-v18-latin/bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <meta name="msapplication-TileColor" content="#0a0a0a" />
         <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png" />
         <meta name="theme-color" content="#0a0a0a" />

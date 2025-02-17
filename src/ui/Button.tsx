@@ -1,4 +1,4 @@
-import { DragEventHandler, MutableRefObject, ReactNode, useRef } from "react";
+import { MutableRefObject, ReactNode, useRef } from "react";
 import styles from "./Button.module.css";
 
 interface Props {
