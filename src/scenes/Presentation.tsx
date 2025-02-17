@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 import Location from "../icons/Location";
 import Steam from "../icons/Steam";
 import YouTube from "../icons/YouTube";
@@ -11,7 +11,6 @@ import { cropIn } from "../shared/Animations";
 import Person from "../icons/Person";
 import { getAge } from "../utils/Age";
 import Work from "../icons/Work";
-import Skeleton from "../ui/Skeleton";
 import Picture from "../ui/Picture";
 
 interface Props {

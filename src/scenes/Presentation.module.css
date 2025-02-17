@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+  width: min(calc(100vw - 64px), 500px);
 }
 
 .heading {
@@ -56,10 +57,11 @@
 }
 
 .boxItemContainer {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 356px;
+  gap: min(64px, 8vw);
 }
 
 .boxMetadataContainer {
@@ -103,4 +105,23 @@
 
 .boxDescriptionYouTube {
   color: #ff0033;
+}
+
+@media screen and (max-width: 515px) {
+  .boxItemContainer {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .boxMetadataContainer {
+    width: 100%;
+  }
+
+  .aboutMeContainer {
+    margin-bottom: 16px;
+  }
+
+  .boxContainer {
+    margin-bottom: 24px;
+  }
 }
