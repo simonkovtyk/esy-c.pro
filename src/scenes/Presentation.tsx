@@ -76,6 +76,7 @@ const Presentation = (props: Props) => {
             </div>
           </BoxItem>
         </div>
+        <VideoControl videoRef={props.videoRef} />
       </Box>
     </div>
   );
