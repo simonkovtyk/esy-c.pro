@@ -1,4 +1,5 @@
 .container {
+  margin: 32px 0;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -110,7 +111,11 @@
 @media screen and (max-width: 515px) {
   .boxItemContainer {
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
+  }
+
+  .boxHeading {
+    font-size: 18px;
   }
 
   .boxMetadataContainer {
@@ -122,6 +127,6 @@
   }
 
   .boxContainer {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
 }

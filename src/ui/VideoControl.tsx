@@ -7,7 +7,7 @@ import VolumeUp from "../icons/VolumeUp";
 import styles from "./VideoControl.module.css";
 
 interface Props {
-  videoRef?: MutableRefObject<HTMLVideoElement | null>
+  videoRef: MutableRefObject<HTMLVideoElement | null>;
 }
 
 const VideoControl = (props: Props) => {
@@ -18,13 +18,81 @@ const VideoControl = (props: Props) => {
 
   useEffect((): void => {
     props.videoRef!.current!.volume = volume;
-  }, [volume])
+  }, [volume]);
 
   useEffect((): void => {
     playing
       ? props.videoRef!.current!.play()
       : props.videoRef!.current!.pause()
-  }, [playing])
+  }, [playing]);
+
+  const updatePositionState = (): void => {
+    navigator.mediaSession.setPositionState({
+      duration: props.videoRef.current!.duration,
+      playbackRate: props.videoRef.current!.playbackRate,
+      position: props.videoRef.current!.currentTime
+    });
+  }
+
+  useEffect(() => {
+    props.videoRef.current!.volume = 0.5;
+
+    props.videoRef.current!.play().then((): void => {
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: "got played by esy ©",
+          artwork: [
+            {
+              src: "/images/media-artwork-512x512.webp",
+              sizes: "512x512",
+              type: "image/webp"
+            }
+          ]
+        });
+
+        navigator.mediaSession.setActionHandler("play", (): void => {
+          setPlaying(true);
+        });
+
+        navigator.mediaSession.setActionHandler("stop", (): void => {
+          setPlaying(false);
+          props.videoRef.current!.currentTime = 0;
+        });
+
+        navigator.mediaSession.setActionHandler("pause", (): void => {
+          setPlaying(false);
+          props.videoRef.current!.pause();
+        });
+
+        navigator.mediaSession.setActionHandler("nexttrack", (): void => {
+          props.videoRef.current!.currentTime = 0;
+        });
+
+        navigator.mediaSession.setActionHandler("previoustrack", (): void => {
+          props.videoRef.current!.currentTime = 0;
+        });
+
+        navigator.mediaSession.setActionHandler("seekbackward", (details: MediaSessionActionDetails): void => {
+          const skipTime = details.seekOffset ?? 10;
+          props.videoRef.current!.currentTime = Math.max(props.videoRef.current!.currentTime - skipTime, 0);
+          updatePositionState();
+        });
+
+        navigator.mediaSession.setActionHandler("seekforward", (details: MediaSessionActionDetails): void => {
+          const skipTime = details.seekOffset ?? 10;
+          props.videoRef.current!.currentTime = props.videoRef.current!.currentTime + skipTime > props.videoRef.current!.duration ? 0 : props.videoRef.current!.currentTime + skipTime;
+          updatePositionState();
+        });
+
+        navigator.mediaSession.setActionHandler("seekto", (details: MediaSessionActionDetails): void => {
+          props.videoRef.current!.currentTime = details.seekTime ?? props.videoRef.current!.currentTime;
+          updatePositionState();
+        });
+
+        navigator.mediaSession.playbackState = "playing";
+      }
+    });
+  }, [])
 
   const handleClickPlayToggle = (): void => {
     setPlaying((_playing) => !_playing);

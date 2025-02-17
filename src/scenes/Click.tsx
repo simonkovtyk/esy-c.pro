@@ -1,4 +1,4 @@
-import { Dispatch, MutableRefObject, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, MutableRefObject, SetStateAction, useContext, useEffect, useRef } from "react";
 import { cropOut } from "../shared/Animations";
 import styles from "./Click.module.css";
 

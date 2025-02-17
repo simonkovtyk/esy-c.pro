@@ -14,7 +14,7 @@ import Work from "../icons/Work";
 import Picture from "../ui/Picture";
 
 interface Props {
-  videoRef: MutableRefObject<HTMLVideoElement | null>
+  videoRef: MutableRefObject<HTMLVideoElement | null>;
 }
 
 const Presentation = (props: Props) => {

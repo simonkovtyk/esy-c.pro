@@ -15,18 +15,15 @@ const Home = () => {
     if (!clickEmitted)
       return;
 
-    refVideo.current!.volume = 0.5;
-    refVideo.current!.play();
-
     setTimeout((): void => {
       setSwitchScenes(true);
-    }, 3000)
-  }, [ clickEmitted ])
+    }, 3000);
+  }, [clickEmitted])
 
   return (
     <>
       <main className={styles.main}>
-        <Logo width={256} />
+        <Logo />
         {
           switchScenes
           ? <Presentation videoRef={refVideo} />
