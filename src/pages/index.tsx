@@ -14,10 +14,8 @@ const Home = () => {
   useEffect((): void => {
     if (!clickEmitted)
       return;
-
-    setTimeout((): void => {
-      setSwitchScenes(true);
-    }, 3000);
+    
+    setSwitchScenes(true);
   }, [clickEmitted])
 
   return (
